@@ -1,0 +1,32 @@
+
+<% for_device_type :desktop do %>
+   <p>Desktop, laptop...not a phone or tablet.</p>
+ <% end %>
+ <% for_device_type :tablet do %>
+   <p>You're on a tablet. That's so cool!</p>
+ <% end %>
+ <% for_device_type :mobile do %>
+   <p>You're on a phone! Text me!</p>
+ <% end %>
+
+
+<div>
+    <h2>Authors</h2>
+    <% @authors.each do |author| %>
+        <ul>
+	    <li><%= link_to author.name, author_collection_path(id: author.id) %></li>
+	    <li><%= author.email %></li>
+	</ul>
+    <% end %>
+</div>
+<div>
+    <h2>Books</h2>
+    <% @books.each do |book| %>
+	<ul>
+	    <li><%= book.title %></li>
+	    <li><%= book.summary %></li>
+	</ul>
+    <% end %>
+</div>
+
+<%= paginate @books %>
